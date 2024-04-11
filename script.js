@@ -32,7 +32,6 @@ function addItem(){
 
 }
 
-
 function deleteItem(){
-    
+    this.closest('li').remove();
 }
