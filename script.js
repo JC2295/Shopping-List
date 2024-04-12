@@ -18,6 +18,12 @@ function addItem(){
 
     let delete_item_button = document.createElement("button");
 
+    let check_box = document.createElement("input");
+
+    check_box.setAttribute("type", "checkbox");
+
+    check_box.addEventListener("change", check);
+
     delete_item_button.innerText = "Delete";
 
     delete_item_button.addEventListener("click", deleteItem);
@@ -26,10 +32,25 @@ function addItem(){
 
     list_item.appendChild(list_item_text);
 
+    list_item.appendChild(check_box)
+
     list_item.appendChild(delete_item_button);
 
     item_list.appendChild(list_item);
+}
 
+function check() {
+
+    let current_list_item = this.closest("li");   
+
+    let current_span = current_list_item.querySelector("span");
+
+    if (this.checked) {
+        current_span.classList.add("checked");    
+    } 
+    else {
+    current_span.classList.remove("checked");
+    }
 }
 
 function deleteItem(){
